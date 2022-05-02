@@ -1,2 +1,3 @@
-# project1
-the best game of all time
+# Battleships
+
+Battleship game made with Pygame
