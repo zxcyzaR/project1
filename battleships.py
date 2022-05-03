@@ -40,14 +40,14 @@ start_button_rect = button.get_rect()
 back_button_rect = button.get_rect()
 done_button_rect = button.get_rect()
 reset_button_rect = button.get_rect()
-start_button_rect.topleft = (320, 500)
+start_button_rect.topleft = (320, 500) # указание координат верхнего левого угла прямоугольника
 back_button_rect.topleft = (0, 0)
 done_button_rect.topleft = (650, 430)
 reset_button_rect.topleft = (650, 500)
 
 
 
-battleship_color_red_button_player_1_rect = pygame.Rect(270, 150, 50, 50)
+battleship_color_red_button_player_1_rect = pygame.Rect(270, 150, 50, 50) # в скобках координаты x и y, ширина и высота прямоугольника
 battleship_color_blue_button_player_1_rect = pygame.Rect(370, 150, 50, 50)
 battleship_color_green_button_player_1_rect = pygame.Rect(470, 150, 50, 50)
 battleship_color_red_button_player_2_rect = pygame.Rect(270, 350, 50, 50)
@@ -70,7 +70,7 @@ small_font = pygame.font.SysFont('roboto', 25)
 
 player_1_text = big_font.render('Player 1', True, (255, 255, 255))
 player_2_text = big_font.render('Player 2', True, (255, 255, 255))
-choose_battleship_color_text = small_font.render('Выбери цвет своего корабля', True, (255, 255, 255))
+choose_battleship_color_text = small_font.render('Выбери цвет своего корабля', True, (255, 255, 255)) # Написание инструкции сверху от поля(белого цвета)
 same_players_color_text = small_font.render('Игроки должны выбрать разные цвета для своих кораблей!', True,
                                             (255, 0, 0))
 start_button_text = small_font.render('Начало игры', True, (255, 255, 255))
@@ -102,18 +102,18 @@ game_winner_text = []
 
 
 
-pygame.display.set_icon(game_icon)
+pygame.display.set_icon(game_icon) # назначение иконки игры, ссылаясь на константу с изображением сверху
 
 
 # Функции
 def create_grid():
-    global grid_rectangles_list
+    global grid_rectangles_list # назначение глобальной переменной
     grid_rectangle_element = grid_rectangle.get_rect()
     grid_rectangle_element.topleft = (80, 150)
     grid_rectangles_list.append(grid_rectangle_element)
     for i in range(0, grid_line_size):
         if i == 0:
-            for j in range(1, grid_column_size):
+            for j in range(1, grid_column_size): # отрисовка поля 7x7 через цикл
                 grid_rectangle_new_element = grid_rectangle.get_rect()
                 grid_rectangle_new_element.topleft = grid_rectangles_list[j - 1].topright
                 grid_rectangles_list.append(grid_rectangle_new_element)
@@ -135,7 +135,7 @@ def draw_grid():
             window.blit(grid_rectangle, grid_element)
 
 
-def is_game_over():
+def is_game_over(): # проверка на победителя и сцена окончания игры
     global game_winner, game_winner_text
     if player_turn == 1:
         for rect in player_1_battleship:
@@ -147,8 +147,8 @@ def is_game_over():
             if rect not in player_1_hits:
                 return False
         game_winner = 1
-    game_winner_text = small_font.render('Player ' + str(game_winner) + ' is the winner. Press the back button to '
-                                                                        'play again.', True, (255, 255, 255))
+    game_winner_text = small_font.render('Игрок ' + str(game_winner) + ' Победил. Нажмите back, чтобы '
+                                                                        'сыграть снова', True, (255, 255, 255))
     return True
 
 
