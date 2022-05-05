@@ -136,7 +136,7 @@ def draw_grid():
 
 
 def is_game_over(): # проверка на победителя и сцена окончания игры
-    global game_winner, game_winner_text
+    global game_winner, game_winner_text # глобальные переменные
     if player_turn == 1:
         for rect in player_1_battleship:
             if rect not in player_2_hits:
