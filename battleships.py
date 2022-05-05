@@ -24,7 +24,7 @@ grid_column_size = 7
 grid_line_size = 7
 size_of_battleship = 4
 game_winner = 0
-show_own_battleship = False
+show_own_battleship = False # constants
 
 
 # Изображения
